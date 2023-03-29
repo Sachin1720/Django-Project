@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}All Employee{% endblock title %}
+{% block content %}
+<div class="conainer-fluid">
+        <div class="container">
+            <h1 class="text-center">Show All Employees</h1>
+        </div>
+        <div class="container">
+            <form action="/search" method="POST">
+                {% csrf_token %}
+                <tr>
+                    <td><input name='search'></td>
+                    <td><button class="btn btn-dark" type="submit">Search</button></td>
+                    {% comment %} <td><button>Search</button></td> {% endcomment %}
+                    
+                </tr>
+                
+            </form>
+        </div>
+    
+        <div class="container">
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">EMP ID</th>
+      <th scope="col">First NAME</th>
+      <th scope="col">Last NAME</th>
+      <th scope="col">EMAIL ID</th>
+      <th scope="col">CONTACT</th>
+      <th scope="col">POST</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for e in emp %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{e.firstname}}</td>
+      <td>{{e.lastname}}</td>
+      <td>{{e.email}}</td>
+      <td>{{e.contact}}</td>
+      <td>{{e.post}}</td>
+      <td><a href="edit/{{e.id}}"><button type="button" class="btn btn-danger">Edit</button></a></td>
+      <td><a href="delete/{{e.id}}"><button type="button" class="btn btn-warning">Delete</button></a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Add Employee{% endblock title %}
+{% block content %}
+<div class="container-fluid">
+        <div class="container">
+            <h1>Add New Employee</h1>
+        </div>
+        <div class="container">
+            <form action="{% url 'add' %}" method="post">
+                {% csrf_token %}
+                <label for="">FIRST NAME:</label>
+                <div>{{form.firstname}}</div>
+                <label for="">LAST NAME:</label>
+                <div>{{form.lastname}}</div>
+                <label for="">EMAIL:</label>
+                <div>{{form.email}}</div>
+                <label for="">CONTACT:</label>
+                <div>{{form.contact}}</div>
+                <label for="">POST:</label>
+                <div>{{form.post}}</div>
+                <div class="mt-4">
+                    <button class="btn btn-dark" type="submit">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+    
+    
+    

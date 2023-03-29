@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Edit Employee{% endblock title %}
+{% block content %}
+<div class="container-fluid">
+        <div class="container">
+            <h1>Update Employee</h1>
+        </div>
+        <div class="container">
+            <form action="/update/{{emp.id}}" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><input name="firstname" required value="{{emp.firstname}}" ></td>
+                    </tr>
+                    <tr>
+                        <td><input name="lastname" required value="{{emp.lastname}}"></td>
+                    </tr>
+                    <tr>
+                        <td><input name="email" required value="{{emp.email}}"></td>
+                    </tr>
+                    <tr>
+                        <td><input name="contact" required value="{{emp.contact}}"></td>
+                    </tr>
+                    <tr>
+                        <td><input name="post" required value="{{emp.post}}"></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-dark" type="submit">Update</button></td>
+                        
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
